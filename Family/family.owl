@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#"
+     xml:base="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology"
+     xmlns:fam="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology">
+        <rdfs:comment>The Family Relationship Ontology</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasAncestor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasAncestor">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>hasAncestor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasDescendant"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isChild"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>hasChild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasDescendant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasDescendant">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>hasDescendant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGrandchild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGrandchild">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandparent"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasDescendant"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandchild"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>hasGrandchild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGrandparent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGrandparent">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandchild"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasAncestor"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandparent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>hasGrandparent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGreatGrandchild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGreatGrandchild">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandparent"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasDescendant"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandparent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>hasGreatGrandchild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGreatGrandparent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasGreatGrandparent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasAncestor"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandchild"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>hasGreatGrandparent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isChild"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasAncestor"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>hasParent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>isAncestor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isChild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isChild">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>isChild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>isDescendant</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandchild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandchild">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>isGrandchild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandparent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGrandparent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>isGrandparent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandchild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandchild">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isDescendant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>isGreatGrandchild</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandparent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isGreatGrandparent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>isGreatGrandparent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isAncestor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>isParent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#married -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#married">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasChild"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isChild"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>married</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>related</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#siblings -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#siblings">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#isParent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:label>siblings</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#dob -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#dob">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:label>dateOfBirth</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#dod -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#dod">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:label>dateOfDeath</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Child -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Child">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>Child</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Daugther -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Daugther">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Child"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <rdfs:label>Daugther</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Father -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Father">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Parent"/>
+        <rdfs:label>Father</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>Female</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human">
+        <rdfs:label>Human</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>Male</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Mother -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Mother">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Parent"/>
+        <rdfs:label>Mother</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Parent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Parent">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Human"/>
+        <rdfs:label>Parent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Son -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Son">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Child"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <rdfs:label>Son</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Alberto_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz"/>
+        <married rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Louise_Carr"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1970</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Alberto_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Alberto_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <hasGreatGrandchild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins"/>
+        <hasGreatGrandchild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes"/>
+        <married rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1936</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1984</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Alberto_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1964</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <hasGreatGrandchild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins"/>
+        <hasGreatGrandchild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1941</dob>
+        <dod rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2015</dod>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Jose_Hawkins"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2018</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ethel_Hurt -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ethel_Hurt">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1986</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1965</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <married rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ethel_Hurt"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1981</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Jose_Hawkins -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Jose_Hawkins">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins"/>
+        <married rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1988</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Emily_Hawkins"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Louise_Carr"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1994</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Louise_Carr -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Louise_Carr">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Karen_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1972</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Alberto_Mayes"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Doris_Diaz"/>
+        <married rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Aaron_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Donna_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1959</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ruth_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Female"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Ethel_Hurt"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2013</dob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Scott_Mayes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Male"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Helen_Davis"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Richard_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#Amber_Mayes"/>
+        <siblings rdf:resource="http://www.semanticweb.org/zholdoshov/ontologies/family-ontology#John_Mayes"/>
+        <dob rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1982</dob>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
